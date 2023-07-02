@@ -17,6 +17,7 @@ When added to the plugins folder, the slider block is added to the Gutenberg blo
 - JSX - Wordpress Gutenberg block code
 - Swiper css & js bundles - to create slider on frontend
 - Npm, Webpack, Babel - to build the project
+- Eslint, stylelint - to lint JS/JSX/SCSS code according to Wordpress and Sass recommendations
 
 ## Installation
 
