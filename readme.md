@@ -15,6 +15,7 @@ By adding into plugins folder adds Slider block in Gutenberg blocks library. Sli
 
 - SCSS - some slider styles
 - JS, React, JSX - Wordpress Gutenberg block code
+- Swiper css & js bundle - to create slider on frontend
 - NPM, Webpack, Babel - to build the project
 
 ## Installation
