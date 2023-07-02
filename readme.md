@@ -1,7 +1,7 @@
 # Swiper-wordpress
 ## _Slider plugin for Wordpress Gutenberg based on Swiper.js_
 
-By adding into plugins folder adds Slider block in Gutenberg blocks library. Slider can handle additional Slide blocks, which takes any onther Gutenberg blocks in it.
+When added to the plugins folder, the slider block is added to the Gutenberg block library. Slider can handle additional Slide blocks, which takes any onther Gutenberg blocks in it.
 
 ## Features
 
@@ -14,13 +14,13 @@ By adding into plugins folder adds Slider block in Gutenberg blocks library. Sli
 ## Tech
 
 - SCSS - some slider styles
-- JS, React, JSX - Wordpress Gutenberg block code
-- Swiper css & js bundle - to create slider on frontend
-- NPM, Webpack, Babel - to build the project
+- JSX - Wordpress Gutenberg block code
+- Swiper css & js bundles - to create slider on frontend
+- Npm, Webpack, Babel - to build the project
 
 ## Installation
 
-Swiper-wordpress requires [Node.js](https://nodejs.org/) v18+ to run.
+Swiper-wordpress requires [Node.js](https://nodejs.org/) v16+ to run.
 
 Install the dependencies and devDependencies and start the server.
 
