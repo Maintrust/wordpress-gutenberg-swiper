@@ -4,6 +4,26 @@
   position: relative;
   overflow: hidden;
   z-index: 1;
+
+  .swiper-prev, .swiper-next {
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    transition: opacity .2s;
+
+    &:hover {
+      opacity: .7;
+    }
+  }
+
+  .swiper-prev {
+    left: 10px;
+  }
+  .swiper-next {
+    right: 10px;
+  }
 }
 
 .swiper-wrapper {
