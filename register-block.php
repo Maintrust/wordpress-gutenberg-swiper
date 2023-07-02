@@ -6,27 +6,20 @@ function rk_slider_block() {
 		return;
 	}
 
-  $block_name = 'slider_block';
-  $prefix = 'rk-';
   $front_script = './dist/front-script.min.js';
   $front_style = './dist/front-style.min.css';
   $editor_script = './dist/editor-script.min.js';
   $editor_style = './dist/editor-style.min.css';
 
 	wp_register_script(
-		$prefix . $block_name . 'script-editor',
+		'rk-slider-block-script-editor',
 		plugins_url( $editor_script , __FILE__ ),
-		[
-			'wp-editor',
-			'wp-blocks',
-			'wp-i18n',
-			'wp-element',
-		],
+		[],
 		'1.0.0'
 	);
 
   wp_register_style(
-    $prefix . $block_name . 'style-editor',
+    'rk-slider-block-style-editor',
     plugins_url( $editor_style , __FILE__ ),
     [],
     '1.0.0'
@@ -34,13 +27,13 @@ function rk_slider_block() {
 
   if (!is_admin()) {
     wp_register_script(
-      $prefix . $block_name . 'script-front',
+      'rk-slider-block-script-front',
       plugins_url( $front_script , __FILE__ ),
-      array(),
+      [],
       '1.0.0'
     );
     wp_register_style(
-      $prefix . $block_name . 'style-front',
+      'rk-slider-block-style-front',
       plugins_url( $front_style , __FILE__ ),
       [],
       '1.0.0'
@@ -48,10 +41,10 @@ function rk_slider_block() {
   }
 
   register_block_type( 'rk/slider', array(
-    'editor_script' => $prefix . $block_name . 'script-editor',
-    'editor_style' => $prefix . $block_name . 'style-editor',
-    'style' => $prefix . $block_name . 'style-front',
-    'script' => $prefix . $block_name . 'script-front',
+    'editor_script' => 'rk-slider-block-script-editor',
+    'editor_style' => 'rk-slider-block-style-editor',
+    'style' => 'rk-slider-block-style-front',
+    'script' => 'rk-slider-block-script-front',
   ) );
 
   add_filter( 'block_categories_all' , function( $categories ) {
