@@ -24,10 +24,15 @@ When added to the plugins folder, the slider block is added to the Gutenberg blo
 Swiper-wordpress requires [Node.js](https://nodejs.org/) v16+ to run.
 Tested on Wordpress 6.2.2 version.
 
-Install the dependencies and devDependencies and start the server.
+Clone this repository to wp-content/plugins folder
 
 ```sh
-cd slider-gutenberg
+git clone https://github.com/Maintrust/wordpress-gutenberg-swiper.git
+```
+
+Install the dependencies and build the assets.
+
+```sh
 npm i
-npx webpack
+npm run start
 ```
