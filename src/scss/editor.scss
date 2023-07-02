@@ -1,0 +1,19 @@
+
+:root {
+  --rk-blocks-primary-accent: #bde8e7;
+}
+
+.rk-slide-editor {
+  border: 2px solid var(--rk-blocks-primary-accent);
+
+  &__title {
+    margin: 0;
+    letter-spacing: .5px;
+    background: var(--rk-blocks-primary-accent);
+    padding: 15px;
+  }
+
+  .block-editor-inner-blocks {
+    padding: 15px;
+  }
+}

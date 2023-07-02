@@ -1,0 +1,11 @@
+@import 'swiper/css/bundle';
+
+.swiper-container {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.swiper-wrapper {
+  cursor: move;
+}
