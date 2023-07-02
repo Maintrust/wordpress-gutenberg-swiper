@@ -1,0 +1,12 @@
+{
+  "plugins": ["jsdoc"],
+  "extends": ["plugin:@wordpress/eslint-plugin/recommended-with-formatting"],
+  "parserOptions": {
+    "babelOptions": {
+      "configFile": "./.babelrc"
+    }
+  },
+  "ignorePatterns": ["/dist/*"],
+  "rules": {
+  }
+}
