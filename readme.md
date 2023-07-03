@@ -35,5 +35,5 @@ Install the dependencies and build the assets.
 
 ```sh
 npm i
-npm run start
+npm run build
 ```

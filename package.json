@@ -4,8 +4,7 @@
   "description": "Slider for Wordpress gutenberg",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack",
+    "build": "webpack",
     "lint-js": "eslint ./",
     "lint-styles": "stylelint ./"
   },
