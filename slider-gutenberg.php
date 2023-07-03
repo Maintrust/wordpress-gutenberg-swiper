@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: Slider Gutenberg
-Description: Slider for Wordpress Gutenberg
-Author: RK
-Version: 1.0.0
+  Plugin Name: Slider Gutenberg
+  Description: Slider for Wordpress Gutenberg
+  Author: RK
+  Version: 1.0.0
 */
 
 if ( ! defined( 'ABSPATH' ) ) {
