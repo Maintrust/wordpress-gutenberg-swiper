@@ -3,6 +3,7 @@ const { registerBlockType } = wp.blocks;
 const { InspectorControls, InnerBlocks } = wp.blockEditor;
 const { PanelBody, ToggleControl, __experimentalNumberControl, RangeControl, TextControl, TextareaControl, ColorPalette } = wp.components;
 const { useEffect } = wp.element;
+import SlidesAndResponsive from './slider-responsive-ui.js';
 
 registerBlockType( 'rk/slide', {
 	title: 'Slide',
@@ -124,12 +125,23 @@ registerBlockType( 'rk/slider', {
 			type: 'number',
 			default: 25,
 		},
+		spaceBetweenHugeDesktop: {
+			type: 'number',
+			default: 25,
+		},
 		jsonConfigs: {
 			type: 'string',
 		},
 	},
 
 	edit( { attributes, setAttributes } ) {
+		useEffect( () => { //eslint-disable-line react-hooks/rules-of-hooks
+			setAttributes( { jsonConfigs: generateJson() } );
+		} );
+
+		useEffect( () => { //eslint-disable-line react-hooks/rules-of-hooks
+			setAttributes( { dotsGeneratedStyles: generateDotsStyles() } );
+		} );
 		function generateJson() {
 			return `{
         ${ attributes.hasAutoscroll ? ` "autoplay": {"delay": ${ attributes.autoscrollDuration }},` : `` }
@@ -180,43 +192,6 @@ registerBlockType( 'rk/slider', {
 		function setDotsObject( property, value ) {
 			return setObjectAttribute( attributes.dotsStyles, 'dotsStyles', property, value );
 		}
-
-		function SlidesAndResponsive( { sizename } ) {
-			return (
-				<>
-					<__experimentalNumberControl
-						label={ __( 'Breakpoint', 'rk' ) }
-						isShiftStepEnabled={ true }
-						onChange={ ( value ) => setAttributes( { [ `breakpoint${ sizename }` ]: value } ) }
-						shiftStep={ 1 }
-						step={ 1 }
-						min={ 0 }
-						value={ attributes[ `breakpoint${ sizename }` ] }
-					/>
-					<RangeControl
-						label={ __( 'Slides', 'rk' ) }
-						value={ attributes[ `slidesOn${ sizename }` ] }
-						onChange={ ( value ) => setAttributes( { [ `slidesOn${ sizename }` ]: value } ) }
-						min={ 1 }
-						max={ 10 }
-					/>
-					<TextControl
-						label={ __( 'Space between slides in px', 'rk' ) }
-						type="number"
-						value={ attributes[ `spaceBetween${ sizename }` ] }
-						onChange={ ( value ) => setAttributes( { [ `spaceBetween${ sizename }` ]: value } ) }
-					/>
-				</>
-			);
-		}
-
-		useEffect( () => { //eslint-disable-line react-hooks/rules-of-hooks
-			setAttributes( { jsonConfigs: generateJson() } );
-		} );
-
-		useEffect( () => { //eslint-disable-line react-hooks/rules-of-hooks
-			setAttributes( { dotsGeneratedStyles: generateDotsStyles() } );
-		} );
 
 		return (
 			<>
@@ -322,36 +297,16 @@ registerBlockType( 'rk/slider', {
 							</>
 						) }
 					</PanelBody>
-					<PanelBody
-						title={ __( `Mobile settings`, 'rk' ) }
-						initialOpen={ false }
-					>
-						<SlidesAndResponsive sizename={ 'Mobile' } />
-					</PanelBody>
-					<PanelBody
-						title={ __( `Tablet settings`, 'rk' ) }
-						initialOpen={ false }
-					>
-						<SlidesAndResponsive sizename={ 'Tablet' } />
-					</PanelBody>
-					<PanelBody
-						title={ __( `Laptop settings`, 'rk' ) }
-						initialOpen={ false }
-					>
-						<SlidesAndResponsive sizename={ 'Laptop' } />
-					</PanelBody>
-					<PanelBody
-						title={ __( `Desktop settings`, 'rk' ) }
-						initialOpen={ false }
-					>
-						<SlidesAndResponsive sizename={ 'Desktop' } />
-					</PanelBody>
-					<PanelBody
-						title={ __( `Huge desktop settings`, 'rk' ) }
-						initialOpen={ false }
-					>
-						<SlidesAndResponsive sizename={ 'HugeDesktop' } />
-					</PanelBody>
+					<SlidesAndResponsive attributes={ attributes } setAttributes={ setAttributes } sizename={ 'Mobile' } />
+
+					<SlidesAndResponsive attributes={ attributes } setAttributes={ setAttributes } sizename={ 'Tablet' } />
+
+					<SlidesAndResponsive attributes={ attributes } setAttributes={ setAttributes } sizename={ 'Laptop' } />
+
+					<SlidesAndResponsive attributes={ attributes } setAttributes={ setAttributes } sizename={ 'Desktop' } />
+
+					<SlidesAndResponsive attributes={ attributes } setAttributes={ setAttributes } sizename={ 'HugeDesktop' } />
+
 				</InspectorControls>
 				<div className={ 'rk-slider' } >
 					<InnerBlocks allowedBlocks={ [ 'rk/slide' ] }
